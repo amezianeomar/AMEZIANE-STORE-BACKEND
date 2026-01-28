@@ -1,0 +1,306 @@
+{
+    "consoles": [
+        {
+            "name": "PlayStation 5 Pro",
+            "img": "https://inmedia.ma/wp-content/uploads/2024/09/PlayStation-5-Pro-PS5-Pro-front-view.webp"
+        },
+        {
+            "name": "Xbox Series X",
+            "img": "https://gamingstore.ma/253-medium_default/console-xbox-series-x.jpg"
+        },
+        {
+            "name": "Nintendo Switch OLED",
+            "img": "https://jojophone.ma/wp-content/uploads/2024/02/Produit-Apple-access.png"
+        },
+        {
+            "name": "PlayStation 5 Slim",
+            "img": "https://i5.walmartimages.com/seo/PlayStation-5-Slim-PS5-Console-Built-in-1TB-SSD-Storage-Bundle-Extra-Sony-PS-5-DualSense-Wireless-Play-Station-Controller-Galactic-Purple-Accessories_aef56a35-57de-42cb-9e0b-4587d35e9c3f.745b482fd7c636573a3c3a902e57f10a.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"
+        },
+        {
+            "name": "Xbox Series S",
+            "img": "https://mgamesstore.com/wp-content/uploads/2022/03/71vPCX0bS-L._AC_SL1500.jpg"
+        },
+        {
+            "name": "Steam Deck OLED",
+            "img": "https://zonetech.ma/wp-content/uploads/2025/01/steamdeck-oled-1.webp"
+        },
+        {
+            "name": "ASUS ROG Ally",
+            "img": "https://www.ultrapc.ma/46110-large_default/asus-rog-ally-amd-ryzen-z1-extreme-16gb-512gb-7fhd-w11h.jpg"
+        },
+        {
+            "name": "Lenovo Legion Go",
+            "img": "https://images-cdn.ubuy.com.ly/665c0b9b3e75060a083e3254-lenovo-legion-go-8-8-034-144hz.jpg"
+        },
+        {
+            "name": "Nintendo Switch Lite",
+            "img": "https://i5.walmartimages.com/seo/Nintendo-Switch-Lite-Handheld-game-console-turquoise_ad206b42-a0e9-479d-a995-a23eee7de144_1.38864fcd12904c9b394df85cee1eb49d.jpeg"
+        }
+    ],
+    "monitors": [
+        {
+            "name": "Samsung Odyssey G9",
+            "img": "https://www.pcgamer.ma/259708-large_default/samsung-odyssey-neo-g9-49-pouces.jpg"
+        },
+        {
+            "name": "LG UltraGear 27GN950",
+            "img": "https://www.lg.com/content/dam/channel/wcms/fr/images/moniteurs/27gn950-b_aeu_eefs_fr_c/gallery/DM---V01.jpg"
+        },
+        {
+            "name": "ASUS ROG Swift PG32UQX",
+            "img": "https://i5.walmartimages.com/seo/ASUS-ROG-Swift-PG32UQX-32-4K-UHD-Mini-LED-Gaming-OLED-Monitor-16-9-Black_96aed830-b13c-4240-aedd-cd376d6d877f.1eb3e13623faacfd667ea6cb61ef43e7.png"
+        },
+        {
+            "name": "Dell Alienware AW3423DW",
+            "img": "https://m.media-amazon.com/images/I/81liqxIJOOL._AC_SL1500_.jpg"
+        },
+        {
+            "name": "BenQ ZOWIE XL2546K",
+            "img": "https://atlasgaming.ma/wp-content/uploads/2022/09/Atlas-Gaming-BenQ-ZOWIE-XL2546K-DyAc-A-1200x900.jpg"
+        },
+        {
+            "name": "MSI Optix MAG274QRF",
+            "img": "https://www.techpowerup.com/img/AbNcq7UOoqpnLVU3.jpg"
+        },
+        {
+            "name": "Gigabyte M28U",
+            "img": "https://pcpromaroc.ma/wp-content/uploads/2023/01/monitor-28-gigabyte-m28u-1.jpg"
+        },
+        {
+            "name": "Acer Predator X25",
+            "img": "https://images-cdn.ubuy.co.in/66e5d9a392ec0922044248b9-acer-predator-x25-bmiiprzx-24-5-fhd.jpg"
+        },
+        {
+            "name": "HP Omen 27c",
+            "img": "https://dealtechmaroc.com/wp-content/uploads/2024/02/3756-1.jpg"
+        }
+    ],
+    "son": [
+        {
+            "name": "SteelSeries Arctis Nova Pro",
+            "img": "https://pcpromaroc.ma/wp-content/uploads/2023/01/steelseries-arctis-nova-pro-wireless-13.jpg"
+        },
+        {
+            "name": "HyperX Cloud Alpha",
+            "img": "https://duga.ma/wp-content/uploads/2024/12/94377153_8344054165.jpg"
+        },
+        {
+            "name": "Razer BlackShark V2",
+            "img": "https://www.ultrapc.ma/14768/razer-blackshark-v2-x-noir.jpg"
+        },
+        {
+            "name": "Logitech G Pro X 2",
+            "img": "https://www.ultrapc.ma/41901/logitech-g-pro-x-2-lightspeed-black.jpg"
+        },
+        {
+            "name": "Sony INZONE H9",
+            "img": "https://sonyworld.ma/cdn/shop/files/h9-3.jpg?v=1704973551&width=1445"
+        },
+        {
+            "name": "Corsair Virtuoso RGB",
+            "img": "https://maxgaming.ma/wp-content/uploads/2025/01/CORSAIR-VIRTUOSO-RGB-WIRELESS-XT-MAXGAMING-MAROC-CASQUE-GAMER-PROFESSIONNEL-ESPORT-1.jpg"
+        },
+        {
+            "name": "EPOS H6PRO",
+            "img": "https://m.media-amazon.com/images/I/51Plm1LazoL._AC_SL1200_.jpg"
+        },
+        {
+            "name": "Audio-Technica ATH-M50xSTS",
+            "img": "https://placehold.co/600x400/000000/ffffff?text=ATH-M50x"
+        },
+        {
+            "name": "Beyerdynamic DT 990 Pro",
+            "img": "https://placehold.co/600x400/000000/ffffff?text=DT+990+Pro"
+        }
+    ],
+    "claviers": [
+        {
+            "name": "Corsair K70 RGB PRO",
+            "img": "https://www.asus-store.ma/cdn/shop/files/61qdAQTGy8L._AC_SL1200.jpg?v=1720645507"
+        },
+        {
+            "name": "Razer Huntsman V2",
+            "img": "https://techspace.ma/cdn/shop/products/Razer-HuntsmanV2Tenkyeless_SwitchsoptiquesRed_1200x.png?v=1639735842"
+        },
+        {
+            "name": "Logitech G915 TKL",
+            "img": "https://product-images.eetgroup.com/images/700px_jpg/Img_29691684.jpg"
+        },
+        {
+            "name": "SteelSeries Apex Pro",
+            "img": "https://m.media-amazon.com/images/I/71HmUNj01VL._AC_SL1500_.jpg"
+        },
+        {
+            "name": "Keychron Q1 Pro",
+            "img": "https://i.rtings.com/assets/products/pP29sg7u/keychron-q-pro-series-q1-pro-q2-pro-etc/design-medium.jpg?format=auto"
+        },
+        {
+            "name": "Anne Pro 2",
+            "img": "https://i.ytimg.com/vi/D_wZzOTxhno/maxresdefault.jpg"
+        },
+        {
+            "name": "Ducky One 3 Mini",
+            "img": "https://placehold.co/600x400/ff00ff/ffffff?text=Ducky+One+3"
+        },
+        {
+            "name": "Roccat Vulcan II Max",
+            "img": "https://placehold.co/600x400/000000/ffffff?text=Vulcan+II"
+        },
+        {
+            "name": "ASUS ROG Azoth",
+            "img": "https://placehold.co/600x400/f2f2f2/000000?text=ROG+Azoth"
+        }
+    ],
+    "chaises": [
+        {
+            "name": "Secretlab TITAN Evo",
+            "img": "https://vitality.gg/cdn/shop/products/titan_vitality_face.png?v=1747416818&width=1500"
+        },
+        {
+            "name": "Noblechairs HERO",
+            "img": "https://www.pcgamer.ma/262801-large_default/noblechairs-hero-blackplatinum-white.jpg"
+        },
+        {
+            "name": "Razer Iskur V2",
+            "img": "https://www.workstation.ma/wp-content/uploads/2025/12/Razer-Iskur-Black-Green-iiiiii.jpg"
+        },
+        {
+            "name": "Corsair T3 Rush",
+            "img": "https://www.ultrapc.ma/37606/corsair-t3-rush-charcoal-grey.jpg"
+        },
+        {
+            "name": "Herman Miller Embody",
+            "img": "https://images.hermanmiller.group/asset/8c810dff-e570-48e8-b127-ada7e17c1a3a/W/HMG_2517590_100160889_Embody_black_cyan_crop.png?trim=auto&trim-sd=1&blend-mode=darken&blend=fafafa&bg=fafafa&auto=format&w=1000&q=70&h=1000&viewtype=gallery-hm"
+        },
+        {
+            "name": "DXRacer Craft",
+            "img": "https://www.maxgaming.com/bilder/magic360/27500/CRAFT-L-F23-LTA-NR-X1-001.jpg"
+        },
+        {
+            "name": "AndaSeat Kaiser 3",
+            "img": "https://placehold.co/600x400/a50034/ffffff?text=Kaiser+3"
+        },
+        {
+            "name": "AKRacing Core EX",
+            "img": "https://placehold.co/600x400/0000cd/ffffff?text=Core+EX"
+        },
+        {
+            "name": "Vertagear SL5000",
+            "img": "https://placehold.co/600x400/000000/ffffff?text=SL5000"
+        }
+    ],
+    "souris": [
+        {
+            "name": "Logitech G Pro X Superlight 2",
+            "img": "https://placehold.co/600x400/00aeff/ffffff?text=Superlight+2"
+        },
+        {
+            "name": "Razer DeathAdder V3 Pro",
+            "img": "https://placehold.co/600x400/44d62c/000000?text=DeathAdder+V3"
+        },
+        {
+            "name": "Zowie EC2-CW",
+            "img": "https://placehold.co/600x400/ff0000/ffffff?text=Zowie+EC2"
+        },
+        {
+            "name": "Glorious Model O 2",
+            "img": "https://placehold.co/600x400/ffffff/000000?text=Model+O+2"
+        },
+        {
+            "name": "SteelSeries Aerox 3",
+            "img": "https://placehold.co/600x400/ff5200/ffffff?text=Aerox+3"
+        },
+        {
+            "name": "Corsair Sabre RGB Pro",
+            "img": "https://placehold.co/600x400/ffff00/000000?text=Sabre+RGB"
+        },
+        {
+            "name": "Razer Viper V2 Pro",
+            "img": "https://placehold.co/600x400/44d62c/000000?text=Viper+V2"
+        },
+        {
+            "name": "Finalmouse UltralightX",
+            "img": "https://placehold.co/600x400/d4af37/000000?text=UltralightX"
+        },
+        {
+            "name": "Lamzu Atlantis",
+            "img": "https://placehold.co/600x400/00bede/ffffff?text=Atlantis"
+        }
+    ],
+    "video-games": [
+        {
+            "name": "Elden Ring: Shadow of the Erdtree",
+            "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2778580/page_bg_raw.jpg?t=1763403045"
+        },
+        {
+            "name": "Grand Theft Auto VI",
+            "img": "https://gaming-cdn.com/images/products/2462/orig/grand-theft-auto-vi-pc-rockstar-cover.jpg?v=1762511430"
+        },
+        {
+            "name": "EA Sports FC 24",
+            "img": "https://s25.q4cdn.com/103200307/files/doc_multimedia/FC24_standardkeyart_16x9.jpg"
+        },
+        {
+            "name": "Call of Duty: Modern Warfare III",
+            "img": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mwiii/MWIII-REVEAL-FULL-TOUT.jpg"
+        },
+        {
+            "name": "Cyberpunk 2077: Phantom Liberty",
+            "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2138330/4fc31975413513de4f1ca313b8459f7606b0112f/capsule_616x353.jpg?t=1768305060"
+        },
+        {
+            "name": "Baldur's Gate 3",
+            "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/59827b3d0abf2f29adacfe72fdfd11059d6974e2/capsule_616x353.jpg?t=1765505948"
+        },
+        {
+            "name": "Final Fantasy VII Rebirth",
+            "img": "https://placehold.co/600x400/0076ce/ffffff?text=FF7+Rebirth"
+        },
+        {
+            "name": "Tekken 8",
+            "img": "https://placehold.co/600x400/ff0000/ffffff?text=Tekken+8"
+        },
+        {
+            "name": "Starfield",
+            "img": "https://placehold.co/600x400/000000/ffffff?text=Starfield"
+        }
+    ],
+    "cartes-graphiques": [
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "img": "https://atlasgaming.ma/wp-content/uploads/2024/03/Atlas-Gaming-Asus-ROG-RTX4090-OC-A-1200x1200.jpg"
+        },
+        {
+            "name": "AMD Radeon RX 7900 XTX",
+            "img": "https://lecoingamer.ma/wp-content/uploads/2024/02/Gigabyte-Radeon-RX-7900-XTX-GAMING-OC-24G-jpg.webp"
+        },
+        {
+            "name": "NVIDIA GeForce RTX 4080 Super",
+            "img": "https://pcgamercasa.ma/img/cms/MSI%20GeForce%20RTX%204080%20SUPER%20GAMING%20X%20Slim%2016G-PCG1.jpeg"
+        },
+        {
+            "name": "NVIDIA GeForce RTX 4070 Ti",
+            "img": "https://inmedia.ma/wp-content/uploads/2024/07/gigabyte-rtx-4070ti-super-front.webp"
+        },
+        {
+            "name": "AMD Radeon RX 7800 XT",
+            "img": "https://inmedia.ma/wp-content/uploads/2024/10/Gigabyte-Radeon-RX-7800-XT-GAMING-OC-16G-Front_3_11zon.webp"
+        },
+        {
+            "name": "MSI Suprim X 4090",
+            "img": "https://www.ultrapc.ma/20664-large_default/msi-geforce-rtx-4090-suprim-x-24gb-gddr6x.jpg"
+        },
+        {
+            "name": "ASUS ROG Strix 4080",
+            "img": "https://placehold.co/600x400/f2f2f2/000000?text=ROG+Strix"
+        },
+        {
+            "name": "Gigabyte AORUS Master",
+            "img": "https://placehold.co/600x400/ff5200/ffffff?text=AORUS"
+        },
+        {
+            "name": "ZOTAC Trinity 4070",
+            "img": "https://placehold.co/600x400/ffff00/000000?text=Trinity"
+        }
+    ]
+}
