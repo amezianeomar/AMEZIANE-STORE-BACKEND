@@ -69,7 +69,7 @@ class ProductController extends Controller
         // 2. Upload de l'image
         $uploadedFile = $request->file('image')->getRealPath();
         $uploadResult = $cloudinary->uploadApi()->upload($uploadedFile, [
-            'folder' => 'ameziane_store_products'
+            'folder' => 'ameziane_store_api_test'
         ]);
 
         // 3. Récupération de l'URL sécurisée
@@ -125,7 +125,7 @@ class ProductController extends Controller
             // Upload
             $uploadedFile = $request->file('image')->getRealPath();
             $uploadResult = $cloudinary->uploadApi()->upload($uploadedFile, [
-                'folder' => 'ameziane_store_products'
+                'folder' => 'ameziane_store_api_test'
             ]);
             
             // Mise à jour de l'URL
