@@ -70,5 +70,5 @@ The interface features:
 
 ---
 
-**Lead Tech / QA**: Agt. Antigravity
+**Lead Tech / QA**: AMEZIANE OMAR ASSISTANT
 *Code Audited & Compliant: 2026-01-28*
