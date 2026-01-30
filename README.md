@@ -31,7 +31,7 @@ Welcome to **AMEZIANE-STORE**, a cutting-edge e-commerce platform built with a *
 
 * **Frontend**: React.js, Axios, CSS3 (Variables, Animations, Clip-Paths).
 * **Backend**: Laravel 11, Sanctum (Ready), PHP 8.2+.
-* **Database**: MySQL / MariaDB.
+* **Database**: MySQL / MariaDB (via AlwaysData).
 * **Storage**: Cloudinary.
 
 ## 📦 Installation & Setup
@@ -60,6 +60,34 @@ npm start
 
 *Frontend will run on: `http://localhost:3000`*
 
+## 🚀 Vercel Deployment & Troubleshooting
+
+This project is optimized for deployment on Vercel.
+
+### Critical Configurations
+
+1. **CORS Policy (`vercel.json`)**:
+    * Explicit `Access-Control-Allow-Origin: *` headers are injected to permit cross-origin requests from the React frontend.
+
+2. **Routing Patch (`api/index.php`)**:
+    * A critical patch `$_SERVER['SCRIPT_NAME'] = '/index.php'` is applied to ensure Laravel correctly interprets Vercel's routed requests (preventing 404s on API routes).
+
+### Required Environment Variables
+
+When deploying to Vercel, you **MUST** add the following variables in the Project Settings:
+
+| Key | Description |
+| :--- | :--- |
+| `APP_ENV` | Set to `production` |
+| `APP_KEY` | Your Laravel App Key |
+| `DB_CONNECTION` | `mysql` |
+| `DB_HOST` | `mysql-ameziane.alwaysdata.net` |
+| `DB_PORT` | `3306` |
+| `DB_DATABASE` | `ameziane_store_api` |
+| `DB_USERNAME` | `ameziane` |
+| `DB_PASSWORD` | *(Your Database Password)* |
+| `CLOUDINARY_URL` | *(Your Cloudinary URL)* |
+
 ## 🎨 UI Showcase
 
 The interface features:
@@ -71,4 +99,4 @@ The interface features:
 ---
 
 **Lead Tech / QA**: AMEZIANE OMAR ASSISTANT
-*Code Audited & Compliant: 2026-01-28*
+*Code Audited & Compliant: 2026-01-30*
