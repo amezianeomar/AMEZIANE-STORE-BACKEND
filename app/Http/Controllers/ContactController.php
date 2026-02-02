@@ -31,7 +31,7 @@ class ContactController extends Controller
 
         // 3. Envoi vers l'Admin (Toi)
         // Remplace par ton email d'admin réel
-        Mail::to('admin@ameziane.store')->send(new TransmissionMail($data));
+        Mail::to('imorafid@gmail.com')->send(new TransmissionMail($data));
 
         // 4. Retour avec succès
         return back()->with('success', 'TRANSMISSION UPLOADED SUCCESSFULLY.');
