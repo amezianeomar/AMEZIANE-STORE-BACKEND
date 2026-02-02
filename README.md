@@ -1,102 +1,95 @@
 # AMEZIANE-STORE (Atelier 10: God-Tier Edition) 🎮✨
 
-Welcome to **AMEZIANE-STORE**, a cutting-edge e-commerce platform built with a **Laravel API** backend and a **React** frontend. This project represents the pinnacle of "Atelier 10", featuring a decoupled architecture and a "God-Tier" Cyberpunk/Sci-Fi User Interface.
+**System Status**: `ONLINE` | **Version**: `2.1.0` | **Theme**: `Cyberpunk/Neon`
 
-## 🚀 Features
+Welcome to **AMEZIANE-STORE**, the "God-Tier" e-commerce platform. This project creates a fully immersive, futuristic shopping experience using **Laravel** (Backend/Blade) and **Alpine.js/Tailwind** (Frontend interactions).
 
-### Frontend (React)
+> **AI CONTEXT**: This project structure uses Laravel 10+ conventions. Blade templates (`resources/views`) drive the UI. Auth is handled via standard `Auth::routes()` with custom "Angel Protocol" styling. Role-based access control is implemented via `isAdmin()` helper on the User model and `AdminUserMiddleware`.
 
-* **God-Tier UI**: A fully immersive Cyberpunk aesthetic with Neon Cyan/Purple accents, glassmorphism panels, and holographic effects.
-* **Responsive Design**: Optimized for all devices, from massive gaming monitors to mobile comms links.
-* **Search & Filters**:
-  * Real-time product search by name.
-  * Filtering by **Category** and **Max Price**.
-* **Pagination**: Smooth navigation with "Scroll-to-Top" behavior.
-* **Product Management**:
-  * **FilComp**: Browse the artifact catalogue with HUD-style controls.
-  * **AddComp**: Upload new artifacts with drag-and-drop visuals and seamless API integration.
+---
 
-### Backend (Laravel API)
+## 🚀 Key Features & Updates (Latest)
 
-* **REST API**: Fully decoupled API serving JSON responses.
-* **Advanced Querying**:
-  * `GET /api/products?page=X`: Paginated results (6 per page).
-  * `GET /api/products?search=...`: Search by product name.
-  * `GET /api/products?category=...`: Filter by category.
-  * `GET /api/products?max_price=...`: Filter by budget.
-* **Cloudinary Integration**: Secure image uploads to the specific `ameziane_store_api_test` folder.
-* **Security**: Strict validation and CORS configuration for development stability.
+### 1. **Angel Protocol (Authentication)**
+
+* **System Access**: Renamed "Connexion" to "SYSTEM ACCESS" to match the lore.
+* **Neon Login**: Fully responsive, borderless-mobile design with a `90%` width fluid layout.
+* **Registration**: A completely custom "Angel Protocol Initiation" page replacing the default Laravel form, featuring:
+  * Holographic/Neon styling.
+  * Thematic labels: "Identity" (Name), "Comms Link" (Email), "Secure Passcode" (Password).
+
+### 2. **Access Control (God Mode vs. Angel Mode)**
+
+* **Admins ("Gods")**:
+  * Exclusive "GOD PORTAL" menu item with neon pulse effect.
+  * "QUIT THE PORTAL" dropdown for secure session termination.
+  * Full CRUD access to products and dashboard.
+* **Users ("Angels")**:
+  * "ANGEL PORTAL" menu item.
+  * Product details (`/produits/{id}`) are accessible.
+* **Guests**:
+  * Can browse categories (`/produits/{cat}`).
+  * **Protected**: Attempting to view Product Details (`/produits/{id}`) redirects to the System Access (Login) page.
+
+### 3. **Navigation Architecture**
+
+* **Menu**: `Menu.blade.php` dynamically renders links based on `Auth::guest()`, `Auth::user()->isAdmin()`.
+* **Mobile**: Fully responsive mobile menu with matched thematic elements.
+
+---
 
 ## 🛠️ Technology Stack
 
-* **Frontend**: React.js, Axios, CSS3 (Variables, Animations, Clip-Paths).
-* **Backend**: Laravel 11, Sanctum (Ready), PHP 8.2+.
-* **Database**: MySQL / MariaDB (via AlwaysData).
-* **Storage**: Cloudinary.
+| Component | Tech | Details |
+| :--- | :--- | :--- |
+| **Backend** | **Laravel 10+** | MVC Architecture, Eloquent ORM, Middleware Protection. |
+| **Frontend** | **Blade Templates** | Server-side rendering. |
+| **Styling** | **Tailwind CSS** | Utility-first, heavily customized with Neon colors (`brand-neon`, `brand-magenta`). |
+| **Interactivity** | **Alpine.js** | Lightweight JS for Dropdowns and Mobile Menus. |
+| **Database** | **MySQL** | Standard relational schema. |
+
+---
+
+## 📂 Project Structure (AI Guide)
+
+* `app/Models/User.php`: Contains the `isAdmin()` helper. Roles are defined as constants (`ROLE_ADMIN`, `ROLE_USER`).
+* `routes/web.php`:
+  * **Public**: `produits/{cat}` (Categories).
+  * **Protected (Auth)**: `produits/{id}` (Details) - *Higher Precedence than Public*.
+  * **Admin**: `/admin/*` group protected by `adminuser` middleware.
+* `resources/views/auth/`: Contains the customized `login.blade.php` and `register.blade.php`.
+* `resources/views/Menu.blade.php`: The central navigation hub with role logic.
+
+---
 
 ## 📦 Installation & Setup
 
-### 1. Backend Setup (Laravel)
+### 1. Backend Setup
 
 ```bash
-cd atelier10
 composer install
 cp .env.example .env
-# Configure database in .env
 php artisan key:generate
 php artisan migrate
 php artisan serve
 ```
 
-*API will run on: `http://localhost:8000`*
-
-### 2. Frontend Setup (React)
+### 2. Frontend Build
 
 ```bash
-cd client
 npm install
-npm start
+npm run dev
 ```
-
-*Frontend will run on: `http://localhost:3000`*
-
-## 🚀 Vercel Deployment & Troubleshooting
-
-This project is optimized for deployment on Vercel.
-
-### Critical Configurations
-
-1. **CORS Policy (`vercel.json`)**:
-    * Explicit `Access-Control-Allow-Origin: *` headers are injected to permit cross-origin requests from the React frontend.
-
-2. **Routing Patch (`api/index.php`)**:
-    * A critical patch `$_SERVER['SCRIPT_NAME'] = '/index.php'` is applied to ensure Laravel correctly interprets Vercel's routed requests (preventing 404s on API routes).
-
-### Required Environment Variables
-
-When deploying to Vercel, you **MUST** add the following variables in the Project Settings:
-
-| Key | Description |
-| :--- | :--- |
-| `APP_ENV` | Set to `production` |
-| `APP_KEY` | Your Laravel App Key |
-| `DB_CONNECTION` | `mysql` |
-| `DB_HOST` | `mysql-ameziane.alwaysdata.net` |
-| `DB_PORT` | `3306` |
-| `DB_DATABASE` | `ameziane_store_api` |
-| `DB_USERNAME` | `ameziane` |
-| `DB_PASSWORD` | *(Your Database Password)* |
-| `CLOUDINARY_URL` | *(Your Cloudinary URL)* |
-
-## 🎨 UI Showcase
-
-The interface features:
-
-* **Orbitron/Rajdhani Fonts**: For that futuristic data-terminal feel.
-* **Neon Glows**: Box-shadows that pulse and breathe.
-* **Angled UI**: Clip-path styling (with mobile safety fallbacks) for a tactical look.
 
 ---
 
-**Lead Tech / QA**: AMEZIANE OMAR ASSISTANT
-*Code Audited & Compliant: 2026-01-30*
+## 🔮 Future Improvements
+
+* **User Dashboard**: Expand "Angel Portal" to include order history and profile settings.
+* **Admin Analytics**: Add real-time sales tracking to the "God Portal".
+* **Wishlist System**: Allow Angels to save artifacts for later.
+
+---
+
+**Lead Architect**: AMEZIANE OMAR
+*System Last Verified: 2026-02-02*

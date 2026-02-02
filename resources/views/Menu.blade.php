@@ -11,7 +11,7 @@
             </a>
 
             <div class="hidden md:flex space-x-8">
-                <a href="{{ route('home') }}" class="font-display text-sm font-medium text-gray-300 hover:text-brand-neon transition-colors uppercase tracking-widest hover:border-b-2 hover:border-brand-neon py-2 {{ request()->routeIs('home') ? 'text-brand-neon border-b-2 border-brand-neon' : '' }}">
+                <a href="{{ route('home') }}" class="font-display text-sm font-medium text-gray-300 hover:text-brand-neon transition-colors uppercase tracking-widest hover:border-b-2 hover:border-brand-neon py-2 {{ request()->routeIs('home', 'root') ? 'text-brand-neon border-b-2 border-brand-neon' : '' }}">
                     Accueil
                 </a>
                 
@@ -46,10 +46,56 @@
                     Contact
                 </a>
                 
-                <!-- GOD PORTAL -->
-                <a href="{{ route('admin.dashboard') }}" class="font-display text-sm font-bold text-brand-magenta hover:text-brand-neon transition-colors uppercase tracking-widest border-2 border-brand-magenta hover:border-brand-neon rounded px-3 py-1 ml-4 animate-pulse">
-                    GOD PORTAL
-                </a>
+                <!-- Auth Check -->
+                @guest
+                    <a href="{{ route('login') }}" class="font-display text-sm font-bold text-white hover:text-brand-neon transition-colors uppercase tracking-widest border-2 border-white/20 hover:border-brand-neon rounded px-4 py-1 ml-4">
+                        SYSTEM ACCESS
+                    </a>
+                @endguest
+
+                @auth
+                    @if(Auth::user()->isAdmin())
+                        <!-- GOD PORTAL Dropdown -->
+                        <div class="relative group ml-4" x-data="{ godOpen: false }" @mouseenter="godOpen = true" @mouseleave="godOpen = false">
+                            <a href="{{ route('admin.dashboard') }}" class="flex items-center font-display text-sm font-bold text-brand-magenta hover:text-brand-neon transition-colors uppercase tracking-widest border-2 border-brand-magenta hover:border-brand-neon rounded px-3 py-1 animate-pulse">
+                                GOD PORTAL
+                            </a>
+                            <!-- Dropdown Menu -->
+                            <div x-show="godOpen" 
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 translate-y-2"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 class="absolute right-0 mt-0 w-56 bg-brand-surface border border-white/10 rounded-xl shadow-2xl py-2 z-50 backdrop-blur-xl"
+                                 x-cloak>
+                                 <a href="{{ route('logout') }}" 
+                                    class="block px-4 py-3 text-sm text-brand-neon hover:bg-white/5 hover:text-white transition-colors uppercase font-bold tracking-wider text-right"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    QUIT THE PORTAL
+                                 </a>
+                            </div>
+                        </div>
+                    @else
+                        <!-- ANGEL PORTAL Dropdown -->
+                        <div class="relative group ml-4" x-data="{ angelOpen: false }" @mouseenter="angelOpen = true" @mouseleave="angelOpen = false">
+                             <button class="flex items-center font-display text-sm font-bold text-brand-neon hover:text-white transition-colors uppercase tracking-widest border-2 border-brand-neon hover:border-white rounded px-3 py-1">
+                                ANGEL PORTAL
+                            </button>
+                            <div x-show="angelOpen" x-transition class="absolute right-0 mt-0 w-48 bg-brand-surface border border-white/10 rounded-xl shadow-2xl py-2 z-50 backdrop-blur-xl" x-cloak>
+                                 <a href="{{ route('logout') }}" 
+                                    class="block px-4 py-3 text-sm text-white hover:bg-white/5 transition-colors uppercase tracking-wider text-right"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    LOGOUT
+                                 </a>
+                            </div>
+                        </div>
+                    @endif
+                    
+                    <!-- Hidden Logout Form -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                        @csrf
+                    </form>
+                @endauth
             </div>
 
             <div class="md:hidden z-50 relative">
@@ -71,7 +117,7 @@
          class="md:hidden fixed inset-0 bg-brand-dark/95 backdrop-blur-xl z-40 flex flex-col pt-32 px-6 space-y-6 overflow-y-auto"
          x-cloak>
          
-         <a href="{{ route('home') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->routeIs('home') ? 'text-brand-neon' : 'text-white' }}">Accueil</a>
+         <a href="{{ route('home') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->routeIs('home', 'root') ? 'text-brand-neon' : 'text-white' }}">Accueil</a>
          
          <!-- Mobile Cats Split -->
          <div x-data="{ catOpen: false }" class="border-b border-white/10">
@@ -95,8 +141,20 @@
          <a href="{{ route('a_propos') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->routeIs('a_propos') ? 'text-brand-neon' : 'text-white' }}">À Propos</a>
          <a href="{{ route('contact') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 hover:text-brand-neon {{ request()->routeIs('contact') ? 'text-brand-neon' : 'text-white' }}">Contact</a>
          
-         <!-- Mobile God Portal -->
-         <a href="{{ route('admin.dashboard') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 text-brand-magenta hover:text-brand-neon animate-pulse">GOD PORTAL</a>
+         <!-- Mobile Auth -->
+         @guest
+             <a href="{{ route('login') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 text-white hover:text-brand-neon">SYSTEM ACCESS</a>
+         @endguest
+
+         @auth
+            @if(Auth::user()->isAdmin())
+                <a href="{{ route('admin.dashboard') }}" class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 text-brand-magenta hover:text-brand-neon animate-pulse">GOD PORTAL</a>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block text-center font-display text-xl font-bold py-4 border-b border-white/10 text-brand-neon hover:text-white">QUIT THE PORTAL</a>
+            @else
+                <div class="block text-center font-display text-2xl font-bold py-4 border-b border-white/10 text-brand-neon">ANGEL PORTAL</div>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block text-center font-display text-xl font-bold py-4 border-b border-white/10 text-white hover:text-brand-neon">LOGOUT</a>
+            @endif
+         @endauth
 
          <!-- Mobile Footer Info -->
         <div class="mt-auto pb-10 text-center">
