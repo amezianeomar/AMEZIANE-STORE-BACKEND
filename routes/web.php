@@ -39,3 +39,6 @@ Route::get('/', function () {
 Route::get('/categories', [HomeController::class, 'categories'])->name('categories');
 Route::get('/a-propos', [HomeController::class, 'about'])->name('a_propos');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'showContact'])->name('contact');
+Route::post('/contact/send', [App\Http\Controllers\ContactController::class, 'sendTransmission'])->name('transmission.send');
