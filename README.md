@@ -1,40 +1,30 @@
 # AMEZIANE-STORE (Atelier 10: God-Tier Edition) 🎮✨
 
-**System Status**: `ONLINE` | **Version**: `2.1.0` | **Theme**: `Cyberpunk/Neon`
+**System Status**: `ONLINE` | **Version**: `2.2.0` | **Theme**: `Cyberpunk/Neon`
 
 Welcome to **AMEZIANE-STORE**, the "God-Tier" e-commerce platform. This project creates a fully immersive, futuristic shopping experience using **Laravel** (Backend/Blade) and **Alpine.js/Tailwind** (Frontend interactions).
 
-> **AI CONTEXT**: This project structure uses Laravel 10+ conventions. Blade templates (`resources/views`) drive the UI. Auth is handled via standard `Auth::routes()` with custom "Angel Protocol" styling. Role-based access control is implemented via `isAdmin()` helper on the User model and `AdminUserMiddleware`.
+> **AI CONTEXT**: This project structure uses Laravel 10+ conventions. Blade templates (`resources/views`) drive the UI. Auth is handled via standard `Auth::routes()` with custom "Angel Protocol" styling. Role-based access control is implemented via `isAdmin()` helper on the User model. **NEW:** Production-ready SMTP Emailing via Gmail/Vercel.
 
 ---
 
 ## 🚀 Key Features & Updates (Latest)
 
-### 1. **Angel Protocol (Authentication)**
+### 1. **Secure Uplink (Contact System) [NEW]**
+* **Transmission Protocol**: A fully functional Contact System utilizing **Gmail SMTP** transport.
+* **Vercel Compatibility**: Patched `config/mail.php` to handle Serverless `HELO/EHLO` handshakes correctly on Vercel infrastructure.
+* **Visual Feedback**: Neon-styled flash messages ("TRANSMISSION UPLOADED SUCCESSFULLY") utilizing Blade Session logic.
+* **Admin Alerts**: Instant email notifications sent to the Mainframe Admin upon form submission.
 
+### 2. **Angel Protocol (Authentication)**
 * **System Access**: Renamed "Connexion" to "SYSTEM ACCESS" to match the lore.
 * **Neon Login**: Fully responsive, borderless-mobile design with a `90%` width fluid layout.
-* **Registration**: A completely custom "Angel Protocol Initiation" page replacing the default Laravel form, featuring:
-  * Holographic/Neon styling.
-  * Thematic labels: "Identity" (Name), "Comms Link" (Email), "Secure Passcode" (Password).
+* **Registration**: A completely custom "Angel Protocol Initiation" page replacing the default Laravel form.
 
-### 2. **Access Control (God Mode vs. Angel Mode)**
-
-* **Admins ("Gods")**:
-  * Exclusive "GOD PORTAL" menu item with neon pulse effect.
-  * "QUIT THE PORTAL" dropdown for secure session termination.
-  * Full CRUD access to products and dashboard.
-* **Users ("Angels")**:
-  * "ANGEL PORTAL" menu item.
-  * Product details (`/produits/{id}`) are accessible.
-* **Guests**:
-  * Can browse categories (`/produits/{cat}`).
-  * **Protected**: Attempting to view Product Details (`/produits/{id}`) redirects to the System Access (Login) page.
-
-### 3. **Navigation Architecture**
-
-* **Menu**: `Menu.blade.php` dynamically renders links based on `Auth::guest()`, `Auth::user()->isAdmin()`.
-* **Mobile**: Fully responsive mobile menu with matched thematic elements.
+### 3. **Access Control (God Mode vs. Angel Mode)**
+* **Admins ("Gods")**: Exclusive "GOD PORTAL" menu item, "QUIT THE PORTAL" secure logout, and full CRUD access.
+* **Users ("Angels")**: "ANGEL PORTAL" access.
+* **Guests**: Restricted access to deep artifact details.
 
 ---
 
@@ -43,53 +33,50 @@ Welcome to **AMEZIANE-STORE**, the "God-Tier" e-commerce platform. This project 
 | Component | Tech | Details |
 | :--- | :--- | :--- |
 | **Backend** | **Laravel 10+** | MVC Architecture, Eloquent ORM, Middleware Protection. |
-| **Frontend** | **Blade Templates** | Server-side rendering. |
-| **Styling** | **Tailwind CSS** | Utility-first, heavily customized with Neon colors (`brand-neon`, `brand-magenta`). |
+| **Comms** | **Gmail SMTP** | TLS Encryption, App Password Authentication. |
+| **Frontend** | **Blade Templates** | Server-side rendering with Glassmorphism UI. |
+| **Styling** | **Tailwind CSS** | Utility-first, heavily customized (`brand-neon`, `brand-magenta`). |
 | **Interactivity** | **Alpine.js** | Lightweight JS for Dropdowns and Mobile Menus. |
-| **Database** | **MySQL** | Standard relational schema. |
+| **Deployment** | **Vercel** | Serverless Architecture with custom `api/index.php` entry. |
 
 ---
 
 ## 📂 Project Structure (AI Guide)
 
-* `app/Models/User.php`: Contains the `isAdmin()` helper. Roles are defined as constants (`ROLE_ADMIN`, `ROLE_USER`).
-* `routes/web.php`:
-  * **Public**: `produits/{cat}` (Categories).
-  * **Protected (Auth)**: `produits/{id}` (Details) - *Higher Precedence than Public*.
-  * **Admin**: `/admin/*` group protected by `adminuser` middleware.
-* `resources/views/auth/`: Contains the customized `login.blade.php` and `register.blade.php`.
-* `resources/views/Menu.blade.php`: The central navigation hub with role logic.
+* `app/Mail/TransmissionMail.php`: **[NEW]** The Mailable class responsible for building the transmission payload.
+* `app/Http/Controllers/ContactController.php`: **[NEW]** Handles validation and SMTP dispatch.
+* `resources/views/emails/transmission_content.blade.php`: **[NEW]** The HTML email template received by Admins.
+* `resources/views/Contact.blade.php`: **[NEW]** The frontend "Secure Uplink" view (Fusion of Design + Logic).
+* `config/mail.php`: Modified to include `'local_domain'` for Vercel SMTP fix.
+* `routes/web.php`: Includes protected Admin groups and public Transmission routes.
 
 ---
 
-## 📦 Installation & Setup
+## ⚠️ Vercel Deployment & SMTP Secrets
 
-### 1. Backend Setup
+To ensure the "Secure Uplink" functions in production, the following Environment Variables MUST be set in Vercel:
 
-```bash
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
-```
+| Variable | Value (Example) | Note |
+| :--- | :--- | :--- |
+| `MAIL_MAILER` | `smtp` | Standard Protocol |
+| `MAIL_HOST` | `smtp.gmail.com` | Gmail Server |
+| `MAIL_PORT` | `587` | TLS Port |
+| `MAIL_USERNAME` | `your-email@gmail.com` | Admin Source |
+| `MAIL_PASSWORD` | `xxxx xxxx xxxx xxxx` | **Google App Password** (Not Login Password) |
+| `MAIL_ENCRYPTION` | `tls` | Security Layer |
 
-### 2. Frontend Build
-
-```bash
-npm install
-npm run dev
-```
+**Critical Fix for Vercel:**
+In `config/mail.php`, the SMTP driver must enforce a valid `local_domain` to prevent `501 5.5.4 HELO/EHLO` errors from Google.
 
 ---
 
 ## 🔮 Future Improvements
 
-* **User Dashboard**: Expand "Angel Portal" to include order history and profile settings.
+* **User Dashboard**: Expand "Angel Portal" to include order history.
 * **Admin Analytics**: Add real-time sales tracking to the "God Portal".
 * **Wishlist System**: Allow Angels to save artifacts for later.
 
 ---
 
 **Lead Architect**: AMEZIANE OMAR
-*System Last Verified: 2026-02-02*
+*System Last Verified: 2026-02-02 (Secure Uplink Operational)*

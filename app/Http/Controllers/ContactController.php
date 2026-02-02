@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function showContact()
     {
-        return view('ContactMail'); // Affiche le formulaire
+        return view('Contact'); // Affiche le formulaire
     }
 
     public function sendTransmission(Request $request)
