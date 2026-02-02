@@ -1,4 +1,4 @@
-# AMEZIANE-STORE (Atelier 10: God-Tier Edition) 🎮✨
+# AMEZIANE-STORE (Atelier 12) 🎮✨
 
 **System Status**: `ONLINE` | **Version**: `2.2.0` | **Theme**: `Cyberpunk/Neon`
 
