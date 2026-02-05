@@ -1,6 +1,6 @@
-# AMEZIANE-STORE (Atelier 12) 🎮✨
+# AMEZIANE-STORE (Atelier 13) 🎮✨
 
-**System Status**: `ONLINE` | **Version**: `2.2.0` | **Theme**: `Cyberpunk/Neon`
+**System Status**: `ONLINE` | **Version**: `2.3.0` | **Theme**: `Cyberpunk/Neon`
 
 Welcome to **AMEZIANE-STORE**, the "God-Tier" e-commerce platform. This project creates a fully immersive, futuristic shopping experience using **Laravel** (Backend/Blade) and **Alpine.js/Tailwind** (Frontend interactions).
 
@@ -11,19 +11,35 @@ Welcome to **AMEZIANE-STORE**, the "God-Tier" e-commerce platform. This project 
 ## 🚀 Key Features & Updates (Latest)
 
 ### 1. **Secure Uplink (Contact System) [NEW]**
+
 * **Transmission Protocol**: A fully functional Contact System utilizing **Gmail SMTP** transport.
 * **Vercel Compatibility**: Patched `config/mail.php` to handle Serverless `HELO/EHLO` handshakes correctly on Vercel infrastructure.
 * **Visual Feedback**: Neon-styled flash messages ("TRANSMISSION UPLOADED SUCCESSFULLY") utilizing Blade Session logic.
 * **Admin Alerts**: Instant email notifications sent to the Mainframe Admin upon form submission.
 
 ### 2. **Angel Protocol (Authentication)**
+
 * **System Access**: Renamed "Connexion" to "SYSTEM ACCESS" to match the lore.
 * **Neon Login**: Fully responsive, borderless-mobile design with a `90%` width fluid layout.
 * **Registration**: A completely custom "Angel Protocol Initiation" page replacing the default Laravel form.
 
-### 3. **Access Control (God Mode vs. Angel Mode)**
+### 3. **Inventory & Mission Systems (Shopping Cart & Orders) [NEW]**
+
+* **Cyberpunk Cart**: A fully responsive inventory system with a neon-grid data table (Desktop) and "Holographic Cards" (Mobile).
+* **Session-Based Storage**: Cart persists across navigation without requiring a database for temporary items.
+* **Mission Logs (Orders)**: A dedicated history of all "Artifacts Secured" (Purchases), viewable in the **Angel Portal**.
+* **Mission Abort Protocol**: Users can cancel specific pending orders via a "Danger Modal" protected by a dual-confirmation mechanism.
+
+### 4. **UI/UX Overhaul (The "Cyberpunk v2" Standard)**
+
+* **Holographic Menus**: Redesigned the "Angel/God Portal" dropdowns with glassmorphism, scanlines, and glow effects.
+* **Success Modals**: "Add to Cart" now triggers a beautiful neon modal instead of a simple page reload.
+* **Mobile-First Precision**: Every element, from the Cart Actions to the Mission Logs, has been optimized for mobile usage.
+
+### 5. **Access Control (God Mode vs. Angel Mode)**
+
 * **Admins ("Gods")**: Exclusive "GOD PORTAL" menu item, "QUIT THE PORTAL" secure logout, and full CRUD access.
-* **Users ("Angels")**: "ANGEL PORTAL" access.
+* **Users ("Angels")**: "ANGEL PORTAL" access, including Mission Logs.
 * **Guests**: Restricted access to deep artifact details.
 
 ---
@@ -79,4 +95,4 @@ In `config/mail.php`, the SMTP driver must enforce a valid `local_domain` to pre
 ---
 
 **Lead Architect**: AMEZIANE OMAR
-*System Last Verified: 2026-02-02 (Secure Uplink Operational)*
+*System Last Verified: 2026-02-05 (Mission Logs & Inventory Link Established)*

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 
 // Route Accueil
 // Auth Routes (Login, Register, Reset)
@@ -24,9 +27,21 @@ Route::middleware(['auth', 'adminuser'])->group(function () {
     Route::delete('/produits/{id}', [ProductController::class, 'destroy'])->name('produits.destroy');
 });
 
+// Cart Routes
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::patch('/cart/update', [CartController::class, 'update'])->name('cart.update');
+Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
 // Protected Routes (Logged In Users "Angels")
 Route::middleware(['auth'])->group(function () {
     Route::get('/produits/{id}', [ProductController::class, 'show'])->where('id', '[0-9]+')->name('produits.show');
+    
+    // Checkout & Orders
+    Route::get('/checkout', [CheckoutController::class, 'process'])->name('checkout.process');
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::delete('/orders/{id}', [OrderController::class, 'cancel'])->name('orders.cancel');
 });
 
 // Public Product Routes

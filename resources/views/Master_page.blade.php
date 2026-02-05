@@ -15,10 +15,10 @@
                     colors: {
                         brand: {
                             dark: '#1a0b2e',
-                            violet: '#4338ca', // Indigo 700
-                            neon: '#0ff', // Cyan
-                            magenta: '#f0f',
-                            surface: '#2d1b4e'
+                            violet: '#bc13fe', // Keeping neon purple as requested for accents
+                            neon: '#00f3ff', // Keeping neon cyan
+                            magenta: '#bc13fe',
+                            surface: '#2d1b4e', // Reverting surface or keeping semi-transparent? Step 71 had #2d1b4e. User wants "responsive" and "layout" fixed. Safe to revert to Step 71's surface for consistency with original look, but Glassmorphism was requested. I will try to blend them.
                         }
                     },
                     fontFamily: {
@@ -51,6 +51,43 @@
     </main>
 
     @include('Footer')
+
+    <!-- Success Modal -->
+    @if(session('show_modal'))
+    <div x-data="{ open: true }" x-show="open" class="fixed inset-0 z-[100] flex items-center justify-center p-4" x-cloak>
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" @click="open = false"></div>
+
+        <!-- Modal Content -->
+        <div class="relative bg-brand-surface border border-brand-neon/50 rounded-2xl shadow-[0_0_50px_rgba(0,243,255,0.2)] max-w-md w-full p-6 overflow-hidden transform transition-all animate-bounce-in">
+            <!-- Neon Glow Effect -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-neon to-transparent"></div>
+            
+            <div class="text-center">
+                <!-- Icon -->
+                <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-brand-neon/10 mb-4 border border-brand-neon/20 shadow-[0_0_15px_rgba(0,243,255,0.3)]">
+                    <svg class="h-8 w-8 text-brand-neon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                
+                <h3 class="text-2xl font-display font-bold text-white mb-2 tracking-wide">ARTIFACT SECURED</h3>
+                <p class="text-gray-300 font-mono text-sm mb-6">
+                    <span class="text-brand-magenta font-bold">{{ session('added_product_name') }}</span> has been added to your inventory.
+                </p>
+
+                <div class="flex flex-col space-y-3">
+                    <a href="{{ route('cart.index') }}" class="w-full inline-flex justify-center items-center px-4 py-3 bg-brand-neon hover:bg-white text-black font-display font-bold rounded-lg transition-all shadow-[0_0_15px_rgba(0,243,255,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.6)]">
+                        ACCESS INVENTORY
+                    </a>
+                    <button @click="open = false" class="w-full inline-flex justify-center items-center px-4 py-3 border border-white/10 hover:border-brand-magenta rounded-lg text-gray-400 hover:text-white font-display font-bold transition-colors">
+                        CONTINUE SHOPPING
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 
 </body>
 </html>
